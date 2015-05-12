@@ -1,0 +1,9 @@
+SiteConfig:
+  extensions:
+    - SiteConfig_IQSecurity
+Page:
+  extensions:
+    - IQSecurity_Page
+LeftAndMain:
+  extensions:
+    - IQLeftAndMainDecorator
