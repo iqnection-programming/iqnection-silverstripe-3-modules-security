@@ -1,9 +1,9 @@
 
-#Menu-SecurityAdmin,
-#Menu-ReportAdmin,
+
+
 #Menu-Help,
-.cms-logo > a,
-cms-content-tools-CMSPagesController,
+#cms-content-tools-CMSPagesController,
 li.class-ErrorPage,
-li.htmleditorfield-from-web			{ display:none !important; }
+li.htmleditorfield-from-web,
+#Form_AddForm_PageType > li.disabled		{ display:none !important; }
 
