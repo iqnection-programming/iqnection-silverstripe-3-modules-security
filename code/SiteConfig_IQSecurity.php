@@ -13,8 +13,12 @@
 		
 		public function updateCMSFields(FieldList $fields) 
 		{
+			$fields->removeFieldFromTab('Root.Main','Theme');
+			$fields->removeByName('Access');
+			
 			if (Permission::check('ADMIN'))
 			{
+				$tab = $fields->findOrMakeTab('Root.Developer.Permissions');
 				// get a list of all page types.
 				$SubClasses = ClassInfo::getValidSubClasses('SiteTree');
 				$ClassOptions = array();
@@ -23,12 +27,7 @@
 					if ($SubClass!='SiteTree') $ClassOptions[$SubClass] = $SubClass;
 				}
 				
-				$fields->addFieldToTab("Root.Permissions", new CheckboxSetField("BlockPageTypes", "Block these page type so users cannot create",$ClassOptions));
-			}
-			else
-			{
-				$fields->removeByName('Access');
-				$fields->removeFieldFromTab('Root.Main','Theme');
+				$tab->push(CheckboxSetField::create("BlockPageTypes", "Block these page type so users cannot create",$ClassOptions));
 			}
 		}
 		
